@@ -4,6 +4,11 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 
+const authRoutes = require("./routes/authRoutes");
+const bookRoutes = require("./routes/bookRoutes");
+const memberRoutes = require("./routes/memberRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
+
 const app = express();
 
 app.use(cors());
@@ -17,14 +22,10 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/api/dashboard", (req, res) => {
-  res.json({
-    books: 2540,
-    members: 1250,
-    issued: 745,
-    fines: 8500
-  });
-});
+app.use("/api/auth", authRoutes);
+app.use("/api/books", bookRoutes);
+app.use("/api/members", memberRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 const PORT = process.env.PORT || 5000;
 
