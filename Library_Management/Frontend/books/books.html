@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Books Management | Library Management System</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f8fc;
+}
+
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:260px;
+height:100vh;
+background:linear-gradient(180deg,#1e40af,#2563eb);
+color:white;
+}
+
+.logo{
+padding:25px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.logo i{
+font-size:40px;
+color:#fbbf24;
+}
+
+.logo h4{
+margin-top:10px;
+}
+
+.sidebar a{
+display:block;
+padding:15px 25px;
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,.15);
+}
+
+.sidebar i{
+width:25px;
+}
+
+.main{
+margin-left:260px;
+padding:30px;
+}
+
+.topbar{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.stat-card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+height:100%;
+}
+
+.stat-card h2{
+font-weight:700;
+}
+
+.card-icon{
+font-size:35px;
+margin-bottom:10px;
+}
+
+.blue{color:#2563eb;}
+.green{color:#10b981;}
+.orange{color:#f59e0b;}
+.red{color:#ef4444;}
+
+.books-section{
+margin-top:30px;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.search-box{
+display:flex;
+gap:15px;
+margin-bottom:25px;
+flex-wrap:wrap;
+}
+
+.form-control,
+.form-select{
+height:50px;
+}
+
+.btn-primary{
+background:#2563eb;
+border:none;
+}
+
+.btn-primary:hover{
+background:#1e40af;
+}
+
+.table img{
+width:45px;
+height:60px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.action-btn{
+    margin: 1px;
+border:none;
+padding:8px 12px;
+border-radius:8px;
+margin-right:5px;
+}
+
+.view-btn{
+background:#2563eb;
+color:white;
+}
+
+.edit-btn{
+background:#10b981;
+color:white;
+}
+
+.delete-btn{
+background:#ef4444;
+color:white;
+}
+
+.badge-available{
+background:#dcfce7;
+color:#166534;
+padding:8px 12px;
+border-radius:20px;
+}
+
+.badge-issued{
+background:#fee2e2;
+color:#991b1b;
+padding:8px 12px;
+border-radius:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+<i class="fas fa-book-open-reader"></i>
+<h4>Library LMS</h4>
+</div>
+
+<a href="../dashboard.html">
+<i class="fas fa-chart-line"></i>
+Dashboard
+</a>
+
+<a href="books.html">
+<i class="fas fa-book"></i>
+Books
+</a>
+
+<a href="../members/members.html">
+<i class="fas fa-users"></i>
+Members
+</a>
+
+<a href="../transactions/issued-books.html">
+<i class="fas fa-arrow-right-arrow-left"></i>
+Transactions
+</a>
+
+<a href="../fines/fines.html">
+<i class="fas fa-money-bill-wave"></i>
+Fines
+</a>
+
+<a href="../reports/reports.html">
+<i class="fas fa-chart-pie"></i>
+Reports
+</a>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+
+<div>
+<h3>Books Management</h3>
+<p class="text-muted">
+Manage all books available in the library
+</p>
+</div>
+
+<a href="add-book.html" class="btn btn-primary">
+<i class="fas fa-plus"></i>
+ Add New Book
+</a>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+<div class="stat-card">
+<div class="card-icon blue">
+<i class="fas fa-book"></i>
+</div>
+<h2>2540</h2>
+<p>Total Books</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="stat-card">
+<div class="card-icon green">
+<i class="fas fa-check-circle"></i>
+</div>
+<h2>1800</h2>
+<p>Available</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="stat-card">
+<div class="card-icon orange">
+<i class="fas fa-book-open"></i>
+</div>
+<h2>700</h2>
+<p>Issued</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="stat-card">
+<div class="card-icon red">
+<i class="fas fa-exclamation-circle"></i>
+</div>
+<h2>40</h2>
+<p>Lost/Damaged</p>
+</div>
+</div>
+
+</div>
+
+<div class="books-section">
+
+<div class="search-box">
+
+<input
+type="text"
+class="form-control"
+placeholder="Search by title, author, ISBN">
+
+<select class="form-select">
+<option>All Categories</option>
+<option>Programming</option>
+<option>Database</option>
+<option>Networking</option>
+<option>Science</option>
+<option>History</option>
+</select>
+
+<select class="form-select">
+<option>Availability</option>
+<option>Available</option>
+<option>Issued</option>
+</select>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="table align-middle">
+
+<thead>
+
+<tr>
+<th>Cover</th>
+<th>ISBN</th>
+<th>Title</th>
+<th>Author</th>
+<th>Category</th>
+<th>Quantity</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+<img src="https://picsum.photos/100/150?1">
+</td>
+
+<td>978123456</td>
+
+<td>Python Programming</td>
+
+<td>John Smith</td>
+
+<td>Programming</td>
+
+<td>15</td>
+
+<td>
+<span class="badge-available">
+Available
+</span>
+</td>
+
+<td>
+
+<a href="book-details.html"
+class="action-btn view-btn">
+
+<i class="fas fa-eye"></i>
+
+</a>
+
+<a href="edit-book.html"
+class="action-btn edit-btn">
+
+<i class="fas fa-pen"></i>
+
+</a>
+
+<button class="action-btn delete-btn">
+
+<i class="fas fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="https://picsum.photos/100/150?2">
+</td>
+
+<td>978987654</td>
+
+<td>Database Systems</td>
+
+<td>Andrew Thomas</td>
+
+<td>Database</td>
+
+<td>10</td>
+
+<td>
+<span class="badge-issued">
+Issued
+</span>
+</td>
+
+<td>
+
+<a href="book-details.html"
+class="action-btn view-btn">
+
+<i class="fas fa-eye"></i>
+
+</a>
+
+<a href="edit-book.html"
+class="action-btn edit-btn">
+
+<i class="fas fa-pen"></i>
+
+</a>
+
+<button class="action-btn delete-btn">
+
+<i class="fas fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="https://picsum.photos/100/150?3">
+</td>
+
+<td>978741852</td>
+
+<td>Operating Systems</td>
+
+<td>William Scott</td>
+
+<td>Programming</td>
+
+<td>20</td>
+
+<td>
+<span class="badge-available">
+Available
+</span>
+</td>
+
+<td>
+
+<a href="book-details.html"
+class="action-btn view-btn">
+
+<i class="fas fa-eye"></i>
+
+</a>
+
+<a href="edit-book.html"
+class="action-btn edit-btn">
+
+<i class="fas fa-pen"></i>
+
+</a>
+
+<button class="action-btn delete-btn">
+
+<i class="fas fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<script src="../assets/js/books.js"></script>
+
+</body>
+</html>

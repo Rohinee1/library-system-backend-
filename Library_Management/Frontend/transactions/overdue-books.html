@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Overdue Books | Library Management System</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f8fc;
+}
+
+.container-box{
+max-width:1400px;
+margin:30px auto;
+padding:20px;
+}
+
+.summary-card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+text-align:center;
+}
+
+.summary-card h2{
+font-weight:700;
+color:#2563eb;
+}
+
+.page-card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+margin-top:25px;
+}
+
+.priority-high{
+background:#fee2e2;
+color:#991b1b;
+padding:8px 12px;
+border-radius:20px;
+font-weight:600;
+}
+
+.priority-medium{
+background:#fef3c7;
+color:#92400e;
+padding:8px 12px;
+border-radius:20px;
+font-weight:600;
+}
+
+.priority-low{
+background:#dcfce7;
+color:#166534;
+padding:8px 12px;
+border-radius:20px;
+font-weight:600;
+}
+
+.btn-reminder{
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+.btn-contact{
+background:#10b981;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container-box">
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<div class="summary-card">
+
+<h2>48</h2>
+
+<p>Overdue Books</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="summary-card">
+
+<h2>35</h2>
+
+<p>Members Involved</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="summary-card">
+
+<h2>₹12,450</h2>
+
+<p>Pending Fines</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="summary-card">
+
+<h2>18</h2>
+
+<p>Critical Cases</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="page-card">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<div>
+
+<h2>Overdue Books</h2>
+
+<p class="text-muted">
+Track overdue books and recover fines
+</p>
+
+</div>
+
+<button class="btn btn-primary">
+
+<i class="fas fa-file-export"></i>
+
+ Export Report
+
+</button>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="table align-middle">
+
+<thead>
+
+<tr>
+<th>Member</th>
+<th>Book</th>
+<th>Due Date</th>
+<th>Days Late</th>
+<th>Fine</th>
+<th>Priority</th>
+<th>Actions</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Rahul Sharma</td>
+
+<td>Python Programming</td>
+
+<td>10 Jun 2026</td>
+
+<td>5</td>
+
+<td>₹250</td>
+
+<td>
+
+<span class="priority-low">
+Low
+</span>
+
+</td>
+
+<td>
+
+<button class="btn btn-reminder btn-sm">
+
+Reminder
+
+</button>
+
+<button class="btn btn-contact btn-sm">
+
+Contact
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Priya Patil</td>
+
+<td>Database Systems</td>
+
+<td>01 Jun 2026</td>
+
+<td>14</td>
+
+<td>₹700</td>
+
+<td>
+
+<span class="priority-medium">
+Medium
+</span>
+
+</td>
+
+<td>
+
+<button class="btn btn-reminder btn-sm">
+
+Reminder
+
+</button>
+
+<button class="btn btn-contact btn-sm">
+
+Contact
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Amit Kumar</td>
+
+<td>Operating Systems</td>
+
+<td>20 May 2026</td>
+
+<td>26</td>
+
+<td>₹1300</td>
+
+<td>
+
+<span class="priority-high">
+Critical
+</span>
+
+</td>
+
+<td>
+
+<button class="btn btn-reminder btn-sm">
+
+Reminder
+
+</button>
+
+<button class="btn btn-contact btn-sm">
+
+Contact
+
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<script src="../assets/js/books.js"></script>
+
+</body>
+</html>
